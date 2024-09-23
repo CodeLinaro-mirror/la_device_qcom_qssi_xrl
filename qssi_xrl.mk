@@ -48,6 +48,9 @@ TARGET_SKIP_OTA_PACKAGE := true
 # Enable AVB 2.0
 BOARD_AVB_ENABLE := true
 
+# Disable  scudo allocation
+PRODUCT_DISABLE_SCUDO := true
+
 #### Dynamic Partition Handling
 
 ####
@@ -276,6 +279,8 @@ PRODUCT_PACKAGES += vndk_package
 
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
 
+#disable installation of gms packages
+TARGET_INSTALLS_NO_GMS := true
 
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
@@ -296,6 +301,37 @@ endif
 # Enable virtual A/B compression
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.mk)
 PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
+
+##############################Go configs###########################################
+
+TARGET_HAS_LOW_RAM := true
+
+# Enable DM file preopting to reduce first boot time
+PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
+
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
+
+DONT_UNCOMPRESS_PRIV_APPS_DEXS := true
+
+# Reduces GC frequency of foreground apps by 50%
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.foreground-heap-growth-multiplier=2.0
+
+# Disable per_app memcg
+PRODUCT_PROPERTY_OVERRIDES += ro.config.per_app_memcg=false
+
+# Add Runtime Resource Overlay package
+PRODUCT_PACKAGES += \
+   FrameworksResTargetGo
+
+PRODUCT_PACKAGES += \
+     android.hardware.cas@1.2-service-lazy
+
+PRODUCT_PACKAGES += disable_configstore
+
+$(call inherit-product, build/target/product/go_defaults.mk)
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackageGo.mk)
+
+#########################End of Go configs########################################
 
 # Include mainline components and qssi_xrl whitelist
 ifeq (true,$(call math_gt_or_eq,$(SHIPPING_API_LEVEL),29))
