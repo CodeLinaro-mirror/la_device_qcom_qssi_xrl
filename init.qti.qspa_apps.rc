@@ -1,0 +1,13 @@
+# Copyright (c) 2022,2024 Qualcomm Innovation Center, Inc. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+#
+
+service vendor_qspa_apps /system_ext/bin/init.qti.qspa_apps.sh
+    class main
+    user system
+    group system
+    disabled
+    oneshot
+
+on early-init
+    start vendor_qspa_apps
