@@ -694,9 +694,7 @@ PRODUCT_PACKAGES := \
     IM \
     SnapdragonGallery \
     VideoEditor \
-    SnapdragonLauncher \
-    QesdkSysService \
-    libqesdk_ndk_platform.qti
+    SnapdragonLauncher
 
 ifeq ($(TARGET_HAS_LOW_RAM),true)
     DELAUN := Launcher3QuickStepGo
