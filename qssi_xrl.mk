@@ -282,7 +282,8 @@ PRODUCT_PACKAGES += vndk_package
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
 
 #disable installation of gms packages
-TARGET_INSTALLS_NO_GMS := true
+TARGET_INSTALLS_NO_GMS := false
+TARGET_IS_AR_GLASSES := true
 
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
