@@ -540,6 +540,14 @@ MM_VIDEO += mm-video-driver-test
 MM_VIDEO += mm-video-encdrv-test
 MM_VIDEO += ExoplayerDemo
 MM_VIDEO += libaacwrapper
+MM_VIDEO += libvideo.qti.videoqutestsys.service@1.0-renderer
+MM_VIDEO += libvideo.qti.videoqutestsys.service@1.0-renderer.utility
+MM_VIDEO += libvideo.qti.videoqutestsys.service@1.0
+MM_VIDEO += android.hardware.common-V2-ndk_platform
+MM_VIDEO += vendor.qti.videoqutestsys-V1-ndk
+MM_VIDEO += vendor.qti.videoqutestsys-V1-ndk_platform
+MM_VIDEO += vendor.qti.videoqutestsys@1.0-service
+
 
 
 #OPENCORE
