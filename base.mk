@@ -694,7 +694,8 @@ PRODUCT_PACKAGES := \
     IM \
     SnapdragonGallery \
     VideoEditor \
-    SnapdragonLauncher
+    SnapdragonLauncher \
+    HeadlessLauncher
 
 ifeq ($(TARGET_HAS_LOW_RAM),true)
     DELAUN := Launcher3QuickStepGo
