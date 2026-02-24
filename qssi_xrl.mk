@@ -147,6 +147,9 @@ TARGET_USES_NQ_NFC := true
 #qspa script to set the runtime flag
 PRODUCT_PACKAGES += init.qti.qspa_apps.sh
 
+#rc file to mount vm partitions during runtime and start qvirt service
+PRODUCT_PACKAGES += init.qti.enable_vm.rc
+
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
 BOARD_FRP_PARTITION_NAME := frp
