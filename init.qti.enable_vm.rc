@@ -1,0 +1,11 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+
+on property:vendor.virt.service.enabled=true
+    wait /dev/block/bootdevice/by-name/vm-bootsys${ro.boot.slot_suffix}
+    mount ext4 /dev/block/bootdevice/by-name/vm-bootsys${ro.boot.slot_suffix} /product/vm-system ro nosuid nodev barrier=1
+    mkdir /mnt/product/vm-persist
+    wait /dev/block/bootdevice/by-name/vm-persist
+    mount ext4 /dev/block/bootdevice/by-name/vm-persist /mnt/product/vm-persist noatime nosuid nodev barrier=1 wait
+    enable vendor.qvirtservice_rs
+    start  vendor.qvirtservice_rs
