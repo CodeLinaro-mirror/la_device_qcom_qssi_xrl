@@ -47,6 +47,14 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_SYSTEM_EXT_EXECUTABLES)
 LOCAL_INIT_RC := init.qti.qspa_apps.rc
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.qti.enable_vm.rc
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/init
+include $(BUILD_PREBUILT)
+
 # Build the buildtools.zip package.
 # It is a package consisting of build tools (like java jdk, build.sh, test-keys),
 # that is further useful for post-make standalone image creation (like for super.img).
