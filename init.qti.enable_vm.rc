@@ -7,5 +7,5 @@ on property:vendor.virt.service.enabled=true
     mkdir /mnt/product/vm-persist
     wait /dev/block/bootdevice/by-name/vm-persist
     mount ext4 /dev/block/bootdevice/by-name/vm-persist /mnt/product/vm-persist noatime nosuid nodev barrier=1 wait
-    enable vendor.qvirtservice_rs
-    start  vendor.qvirtservice_rs
+    enable vendor.qvirtservice-ext_rs
+    start  vendor.qvirtservice-ext_rs
